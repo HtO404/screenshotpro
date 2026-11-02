@@ -2,6 +2,8 @@
 
 **Annotated UI screenshots whose coordinates are measured, not drawn by hand.**
 
+**English** | [中文](README.zh-CN.md)
+
 <p align="center">
   <img src="demo/wikipedia/out/wikipedia-tour.png" width="880" alt="A Wikipedia article annotated by screenshotpro: four numbered red boxes with arrows, a pixelated account area, and a legend bar along the bottom">
 </p>
@@ -249,30 +251,7 @@ screenshotpro/
   other platform or the renderer will complain about the missing font.
 - Everything here is offline. There are no network calls in any script.
 
-## 中文说明
-
-**screenshotpro = 坐标只测不估的界面截图标注工具。**
-
-给它一个 Windows 程序的 exe，它会启动程序、用 `PrintWindow` 抓整窗截图、导出完整 UI
-Automation 控件树，落地成 `shot.png` + `dump.json`。之后你只在 `spec.json` 里写「标哪个控件」
-（`automation_id` / `name` / `path` / `index` 四选一，必须唯一命中），**从不写坐标**。
-`render.py` 画框、编号徽标、箭头、马赛克打码和底部图例条；`verify.py` 用 15 条断言验收，
-任何一条不过就退出码 1。
-
-两种用法，互不依赖：
-
-1. **纯命令行**：装好 Python 3.9+ 和 Pillow 即可，不需要 DSH。三步命令见上文
-   「Minimal reproducible example」，或直接 `python tests/run_tests.py` 离线自测（15 条全过）。
-2. **作为 DSH 插件**：`package.json` 声明了 `dsh.bundle.patch`，`cordis.patch.yml` 插入一个
-   `Screenshot Pro` preset。安装前**必须改一行**：`dsh-skill-filesystem` 的
-   `customSkillDirs` 只认绝对路径（它内部用 `node:path.resolve()`，相对路径会相对 DSH 宿主
-   的进程工作目录解析，也没有任何占位符展开），把本仓 `skills/` 目录的绝对路径填进去。
-
-铁律只有一条：**坐标只测不估。** 图上的每个矩形都来自 `dump.json` 的 UI Automation 数据；
-矩形不对就去修测量，不要在 spec 里手调、不要缩放、不要「看着差不多」。
-
-自测是离线的：`python tests/run_tests.py` 会生成合成窗口，跑完整 render + verify，
-再故意改坏一个报告字段，确认校验器真的会 FAIL。
+> 完整中文版见 [README.zh-CN.md](README.zh-CN.md)。
 
 ## License
 

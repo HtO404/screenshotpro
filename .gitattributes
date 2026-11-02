@@ -1,0 +1,9 @@
+# normalize line endings so a clone on any OS produces the same bytes
+* text=auto
+
+# PowerShell script must stay CRLF + UTF-8 BOM (BOM is what makes 5.1 read it as UTF-8)
+*.ps1 text eol=crlf
+
+# figures and captures are binary
+*.png binary
+*.jpg binary

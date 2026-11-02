@@ -1,0 +1,153 @@
+{
+  "schema": "uia-dump/1",
+  "captured_at": "2026-11-02T11:20:00+08:00",
+  "exe": "Edge 156.0.4314.58 (headless=new, CDP)",
+  "pid": 0,
+  "dpi_scale": 1,
+  "window": {
+    "hwnd": 0,
+    "title": "Screenshot - Wikipedia",
+    "screen_rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1254,
+      "h": 707
+    }
+  },
+  "shot": {
+    "file": "shot.png",
+    "width": 1254,
+    "height": 707
+  },
+  "source": {
+    "kind": "web-dom",
+    "url": "https://en.wikipedia.org/wiki/Screenshot",
+    "viewport_css_px": {
+      "w": 1239,
+      "h": 707
+    },
+    "device_pixel_ratio": 1,
+    "scroll": {
+      "x": 0,
+      "y": 0
+    },
+    "measurement": "controls[].image_rect = Element.getBoundingClientRect() rounded to int, viewport coords; scroll is (0,0) so no offset needed",
+    "pixel_evidence": "screenshot 1254x707 vs layout viewport 1239x707: scale 1:1, the extra 15px is the scrollbar gutter at the right edge; proved by _proof_crop.png"
+  },
+  "capture_check": {
+    "method": "CDP Page.captureScreenshot",
+    "overlap": {
+      "x": 0,
+      "y": 0,
+      "w": 1254,
+      "h": 707
+    },
+    "mean_abs_diff": 0,
+    "suggested_offset": {
+      "dx": 0,
+      "dy": 0
+    }
+  },
+  "controls": [
+    {
+      "index": 0,
+      "depth": 1,
+      "type": "DomNode",
+      "name": "搜索框",
+      "automation_id": "searchInput",
+      "path": "#searchform > input#searchInput",
+      "screen_rect": {
+        "x": 266,
+        "y": 17,
+        "w": 404,
+        "h": 32
+      },
+      "image_rect": {
+        "x": 266,
+        "y": 17,
+        "w": 404,
+        "h": 32
+      }
+    },
+    {
+      "index": 1,
+      "depth": 1,
+      "type": "DomNode",
+      "name": "语言切换",
+      "automation_id": "p-lang-btn-checkbox",
+      "path": "#p-lang-btn-checkbox",
+      "screen_rect": {
+        "x": 829,
+        "y": 94,
+        "w": 158,
+        "h": 32
+      },
+      "image_rect": {
+        "x": 829,
+        "y": 94,
+        "w": 158,
+        "h": 32
+      }
+    },
+    {
+      "index": 2,
+      "depth": 1,
+      "type": "DomNode",
+      "name": "目录",
+      "automation_id": "vector-toc",
+      "path": "#vector-toc",
+      "screen_rect": {
+        "x": 48,
+        "y": 136,
+        "w": 176,
+        "h": 461
+      },
+      "image_rect": {
+        "x": 48,
+        "y": 136,
+        "w": 176,
+        "h": 461
+      }
+    },
+    {
+      "index": 3,
+      "depth": 1,
+      "type": "DomNode",
+      "name": "正文链接",
+      "automation_id": "link-software",
+      "path": "#mw-content-text p a[title=Software]",
+      "screen_rect": {
+        "x": 339,
+        "y": 374,
+        "w": 65,
+        "h": 24
+      },
+      "image_rect": {
+        "x": 339,
+        "y": 374,
+        "w": 65,
+        "h": 24
+      }
+    },
+    {
+      "index": 4,
+      "depth": 1,
+      "type": "DomNode",
+      "name": "账号入口区",
+      "automation_id": "p-personal",
+      "path": "nav#p-personal",
+      "screen_rect": {
+        "x": 987,
+        "y": 23,
+        "w": 208,
+        "h": 20
+      },
+      "image_rect": {
+        "x": 987,
+        "y": 23,
+        "w": 208,
+        "h": 20
+      }
+    }
+  ]
+}

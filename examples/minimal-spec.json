@@ -1,0 +1,42 @@
+{
+  "schema": "annot-spec/1",
+  "figure": "minimal",
+  "shot": "shot.png",
+  "dump": "dump.json",
+  "style": {
+    "font_size": 20,
+    "badge_radius": 14,
+    "box_width": 3,
+    "box_pad": 4
+  },
+  "legend": {
+    "enabled": true,
+    "title": "Operation order",
+    "row_h": 34
+  },
+  "steps": [
+    {
+      "n": 1,
+      "target": { "automation_id": "btnBrowse" },
+      "label": "Step 1: choose the input file.",
+      "box": true,
+      "arrow": true
+    },
+    {
+      "n": 2,
+      "target": { "automation_id": "btnRun" },
+      "label": "Step 2: start the run.",
+      "box": true,
+      "arrow": true
+    }
+  ],
+  "redact": [
+    {
+      "target": { "automation_id": "lblOutDir" },
+      "mode": "pixelate",
+      "block": 12
+    }
+  ],
+  "output": "out/minimal.png"
+}
+

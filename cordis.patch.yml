@@ -1,0 +1,87 @@
+# screenshotpro — DSH plugin bundle
+#
+# Inserts ONE agent preset ("Screenshot Pro") that mounts:
+#   · @deepseek-ai/dsh-persona          -> the operating rule (measure, never estimate)
+#   · @deepseek-ai/dsh-tool-skill       -> lets the agent load the screenshot-pro skill
+#   · @deepseek-ai/dsh-skill-filesystem -> exposes this package's skills/ dir as a skill root
+#   · shell + file + job + todo + ask-user tools the workflow actually needs
+#
+# !! EDIT THE customSkillDirs LINE BEFORE INSTALLING !!
+#
+# @deepseek-ai/dsh-skill-filesystem resolves every entry of config.customSkillDirs
+# with node:path.resolve(), so a relative entry is resolved against the DSH host's
+# process cwd — NOT against this package directory — and there is no placeholder or
+# environment-variable expansion either. Verified in
+#   dsh-skill-filesystem/lib/index.js
+#     Config = z.object({ ... customSkillDirs: z.array(z.string()).default([]), ... })
+#     this.customSkillDirs = (config.customSkillDirs ?? []).map((root) => resolve(root));
+# (there is no 'roots' key; the config key really is customSkillDirs)
+#
+# So give it an ABSOLUTE path, e.g.
+#   - '/home/me/screenshotpro/skills'
+#   - 'C:/tools/screenshotpro/skills'
+- insert:
+    - id: preset-screenshot-pro
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: screenshot-pro
+        name: Screenshot Pro
+        description: 'Measured UI screenshots: capture a window, keep the UI Automation rectangles exactly as measured, render boxes/badges/arrows/pixelation plus a legend bar, then prove the figure with 15 assertions.'
+        order: 7
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: |-
+                You are Screenshot Pro, a screenshot annotation specialist ({{model}}), working in {{cwd}}.
+
+                ## The one rule that is never broken
+                Coordinates are MEASURED, never estimated. Every rectangle in a figure comes from
+                UI Automation data captured by tools/measure_win.py (dump.json). You must not
+                hand-write, round, rescale or nudge a coordinate to make a picture look better.
+                If a rectangle is wrong, the fix belongs in the measurement step, not in the spec.
+
+                ## Workflow (do not skip a step)
+                1. Load the screenshot-pro skill — it holds the command lines, the spec schema
+                   and the meaning of all 15 assertions.
+                2. Measure: python tools/measure_win.py --exe <app.exe> --out figures/<name>
+                   -> figures/<name>/ with shot.png, dump.json, measure-log.txt. Read the log;
+                   a capture-check warning there is a measurement problem, not something to
+                   annotate over.
+                3. Write figures/<name>/spec.json against the controls dump.json actually
+                   contains. A selector must hit exactly one control; prefer automation_id,
+                   then name, then path, then index.
+                4. Render: python tools/render.py figures/<name>/spec.json
+                5. Verify: python tools/verify.py figures/<name>/spec.json
+                   Exit 0 is the only acceptable result. A FAIL row names the invariant that
+                   broke — fix the cause, do not loosen the assertion.
+
+                ## Reporting
+                Report the figure path, the assertion table (all PASS), and anything the
+                measurement step could not cover. Never claim a figure is correct because it
+                looks right — cite the PASS table.
+
+          - id: tool-skill
+            name: '@deepseek-ai/dsh-tool-skill'
+          - id: skill-filesystem
+            name: '@deepseek-ai/dsh-skill-filesystem'
+            config:
+              customSkillDirs:
+                # >>> replace with the ABSOLUTE path of this repo's skills/ directory <<<
+                - '/ABSOLUTE/PATH/TO/screenshotpro/skills'
+          - id: tool-bash
+            name: '@deepseek-ai/dsh-tool-bash'
+            disabled: !!js process.platform === 'win32'
+          - id: tool-pwsh
+            name: '@deepseek-ai/dsh-tool-pwsh'
+            disabled: !!js process.platform !== 'win32'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+          - id: tool-jobs
+            name: '@deepseek-ai/dsh-tool-jobs'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+          - id: tool-ask-user
+            name: '@deepseek-ai/dsh-tool-ask-user'

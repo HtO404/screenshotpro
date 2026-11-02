@@ -1,0 +1,10 @@
+# Python 3.9+
+#
+# tools/render.py and tools/verify.py need Pillow only (they are pure image
+# math on top of an existing screenshot).
+Pillow>=9.0
+#
+# tools/measure_win.py additionally needs numpy for the capture cross-check
+# (PrintWindow vs. screen BitBlt diff). The annotate half and the test suite
+# run fine without it.
+numpy>=1.21

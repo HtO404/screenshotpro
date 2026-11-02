@@ -1,0 +1,133 @@
+{
+  "schema": "uia-dump/1",
+  "captured_at": "2026-11-02T11:20:00+08:00",
+  "exe": "Edge 156.0.4314.58 (headless=new, CDP)",
+  "pid": 0,
+  "dpi_scale": 1,
+  "window": {
+    "hwnd": 0,
+    "title": "MDN Web Docs",
+    "screen_rect": {
+      "x": 0,
+      "y": 0,
+      "w": 1254,
+      "h": 707
+    }
+  },
+  "shot": {
+    "file": "shot.png",
+    "width": 1254,
+    "height": 707
+  },
+  "source": {
+    "kind": "web-dom",
+    "url": "https://developer.mozilla.org/en-US/",
+    "viewport_css_px": {
+      "w": 1239,
+      "h": 707
+    },
+    "device_pixel_ratio": 1,
+    "scroll": {
+      "x": 0,
+      "y": 0
+    },
+    "measurement": "controls[].image_rect = Element.getBoundingClientRect() rounded to int, viewport coords; scroll is (0,0) so no offset needed",
+    "pixel_evidence": "screenshot 1254x707 vs layout viewport 1239x707: scale 1:1, the extra 15px is the scrollbar gutter at the right edge; proved by _proof_crop.png"
+  },
+  "capture_check": {
+    "method": "CDP Page.captureScreenshot",
+    "overlap": {
+      "x": 0,
+      "y": 0,
+      "w": 1254,
+      "h": 707
+    },
+    "mean_abs_diff": 0,
+    "suggested_offset": {
+      "dx": 0,
+      "dy": 0
+    }
+  },
+  "controls": [
+    {
+      "index": 0,
+      "depth": 1,
+      "type": "DomNode",
+      "name": "搜索按钮",
+      "automation_id": "mdn-search-button",
+      "path": "header nav .navigation__search > mdn-search-button",
+      "screen_rect": {
+        "x": 1093,
+        "y": 107,
+        "w": 80,
+        "h": 34
+      },
+      "image_rect": {
+        "x": 1093,
+        "y": 107,
+        "w": 80,
+        "h": 34
+      }
+    },
+    {
+      "index": 1,
+      "depth": 1,
+      "type": "DomNode",
+      "name": "导航选项卡",
+      "automation_id": "menu-tab-javascript",
+      "path": ".navigation__menu .menu__tab:nth-child(3) button",
+      "screen_rect": {
+        "x": 354,
+        "y": 106,
+        "w": 122,
+        "h": 37
+      },
+      "image_rect": {
+        "x": 354,
+        "y": 106,
+        "w": 122,
+        "h": 37
+      }
+    },
+    {
+      "index": 2,
+      "depth": 1,
+      "type": "DomNode",
+      "name": "正文链接",
+      "automation_id": "home-hero-css-link",
+      "path": ".homepage h1 ~ p a[href$=/CSS]",
+      "screen_rect": {
+        "x": 387,
+        "y": 355,
+        "w": 48,
+        "h": 29
+      },
+      "image_rect": {
+        "x": 387,
+        "y": 355,
+        "w": 48,
+        "h": 29
+      }
+    },
+    {
+      "index": 3,
+      "depth": 1,
+      "type": "DomNode",
+      "name": "顶部广告条",
+      "automation_id": "mdn-placement-top",
+      "path": "body .page-layout__banner > mdn-placement-top",
+      "screen_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1239,
+        "h": 57
+      },
+      "image_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1239,
+        "h": 57
+      }
+    }
+  ]
+}

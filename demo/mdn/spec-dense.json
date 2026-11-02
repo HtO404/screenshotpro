@@ -1,0 +1,70 @@
+{
+  "schema": "annot-spec/1",
+  "figure": "mdn-tour",
+  "shot": "shot.png",
+  "dump": "dump.json",
+  "style": {
+    "font_size": 20,
+    "badge_fill": "#E23B2E",
+    "badge_text": "#FFFFFF",
+    "badge_radius": 15,
+    "box_color": "#E23B2E",
+    "box_width": 3,
+    "box_pad": 4,
+    "arrow_width": 3,
+    "arrow_head_len": 10,
+    "arrow_head_w": 9,
+    "min_gap": 8,
+    "badge_avoid_dense_pixels": true
+  },
+  "legend": {
+    "enabled": true,
+    "title": "MDN Web Docs 首页 · 检索与导航",
+    "row_h": 34,
+    "pad_x": 24,
+    "pad_y": 14,
+    "bg": "#F7F7F7",
+    "text_color": "#1F1F1F",
+    "max_text_w": null,
+    "font_size": 17
+  },
+  "steps": [
+    {
+      "n": 1,
+      "target": {
+        "name": "搜索按钮"
+      },
+      "box": true,
+      "arrow": true,
+      "label": "顶栏放大镜：随时唤出全站搜索。"
+    },
+    {
+      "n": 2,
+      "target": {
+        "name": "导航选项卡"
+      },
+      "box": true,
+      "arrow": true,
+      "label": "导航标签：按 HTML / CSS / JS 分类。"
+    },
+    {
+      "n": 3,
+      "target": {
+        "name": "正文链接"
+      },
+      "box": true,
+      "arrow": true,
+      "label": "正文链接：一步进入对应技术文档。"
+    }
+  ],
+  "redact": [
+    {
+      "target": {
+        "name": "顶部广告条"
+      },
+      "mode": "pixelate",
+      "block": 12
+    }
+  ],
+  "output": "out/mdn-tour.png"
+}

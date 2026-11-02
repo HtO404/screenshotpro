@@ -1,0 +1,78 @@
+{
+  "schema": "annot-spec/1",
+  "figure": "wikipedia-tour",
+  "shot": "shot.png",
+  "dump": "dump.json",
+  "style": {
+    "font_size": 20,
+    "badge_fill": "#E23B2E",
+    "badge_text": "#FFFFFF",
+    "badge_radius": 15,
+    "box_color": "#E23B2E",
+    "box_width": 3,
+    "box_pad": 4,
+    "arrow_width": 3,
+    "arrow_head_len": 10,
+    "arrow_head_w": 9,
+    "min_gap": 8
+  },
+  "legend": {
+    "enabled": true,
+    "title": "Wikipedia 条目页 · 阅读动线",
+    "row_h": 34,
+    "pad_x": 24,
+    "pad_y": 14,
+    "bg": "#F7F7F7",
+    "text_color": "#1F1F1F",
+    "max_text_w": null,
+    "font_size": 17
+  },
+  "steps": [
+    {
+      "n": 1,
+      "target": {
+        "name": "搜索框"
+      },
+      "box": true,
+      "arrow": true,
+      "label": "顶栏搜索框：输关键词直达全站条目。"
+    },
+    {
+      "n": 2,
+      "target": {
+        "name": "语言切换"
+      },
+      "box": true,
+      "arrow": true,
+      "label": "语言切换：同一词条另有 54 种语言版本。"
+    },
+    {
+      "n": 3,
+      "target": {
+        "name": "目录"
+      },
+      "box": true,
+      "arrow": true,
+      "label": "左侧目录：按章节跳到长文任意段落。"
+    },
+    {
+      "n": 4,
+      "target": {
+        "name": "正文链接"
+      },
+      "box": true,
+      "arrow": true,
+      "label": "正文蓝链：顺着词条继续下钻。"
+    }
+  ],
+  "redact": [
+    {
+      "target": {
+        "name": "账号入口区"
+      },
+      "mode": "pixelate",
+      "block": 8
+    }
+  ],
+  "output": "out/wikipedia-tour.png"
+}

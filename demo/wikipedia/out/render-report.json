@@ -1,0 +1,176 @@
+{
+  "schema": "annot-report/1",
+  "figure": "wikipedia-tour",
+  "image": {
+    "path": "out/wikipedia-tour.png",
+    "width": 1254,
+    "height": 898
+  },
+  "steps": [
+    {
+      "n": 1,
+      "target_index": 0,
+      "image_rect": {
+        "x": 266,
+        "y": 17,
+        "w": 404,
+        "h": 32
+      },
+      "box_rect": {
+        "x": 262,
+        "y": 13,
+        "w": 412,
+        "h": 40
+      },
+      "badge": {
+        "cx": 239,
+        "cy": 33,
+        "r": 15,
+        "overlap_controls": [],
+        "overlap_ratio": 0.0
+      },
+      "arrow": {
+        "x1": 254,
+        "y1": 33,
+        "x2": 262,
+        "y2": 33
+      }
+    },
+    {
+      "n": 2,
+      "target_index": 1,
+      "image_rect": {
+        "x": 829,
+        "y": 94,
+        "w": 158,
+        "h": 32
+      },
+      "box_rect": {
+        "x": 825,
+        "y": 90,
+        "w": 166,
+        "h": 40
+      },
+      "badge": {
+        "cx": 908,
+        "cy": 153,
+        "r": 15,
+        "overlap_controls": [],
+        "overlap_ratio": 0.0
+      },
+      "arrow": {
+        "x1": 908,
+        "y1": 138,
+        "x2": 908,
+        "y2": 130
+      }
+    },
+    {
+      "n": 3,
+      "target_index": 2,
+      "image_rect": {
+        "x": 48,
+        "y": 136,
+        "w": 176,
+        "h": 461
+      },
+      "box_rect": {
+        "x": 44,
+        "y": 132,
+        "w": 184,
+        "h": 469
+      },
+      "badge": {
+        "cx": 136,
+        "cy": 624,
+        "r": 15,
+        "overlap_controls": [],
+        "overlap_ratio": 0.0
+      },
+      "arrow": {
+        "x1": 136,
+        "y1": 609,
+        "x2": 136,
+        "y2": 601
+      }
+    },
+    {
+      "n": 4,
+      "target_index": 3,
+      "image_rect": {
+        "x": 339,
+        "y": 374,
+        "w": 65,
+        "h": 24
+      },
+      "box_rect": {
+        "x": 335,
+        "y": 370,
+        "w": 73,
+        "h": 32
+      },
+      "badge": {
+        "cx": 312,
+        "cy": 386,
+        "r": 15,
+        "overlap_controls": [],
+        "overlap_ratio": 0.0
+      },
+      "arrow": {
+        "x1": 327,
+        "y1": 386,
+        "x2": 335,
+        "y2": 386
+      }
+    }
+  ],
+  "redactions": [
+    {
+      "target_index": 4,
+      "rect": {
+        "x": 987,
+        "y": 23,
+        "w": 208,
+        "h": 20
+      },
+      "mode": "pixelate"
+    }
+  ],
+  "legend": {
+    "height": 191,
+    "rows": [
+      {
+        "n": 1,
+        "text": "顶栏搜索框：输关键词直达全站条目。",
+        "col": 0,
+        "y": 748,
+        "x": 64,
+        "w": 289
+      },
+      {
+        "n": 2,
+        "text": "语言切换：同一词条另有 54 种语言版本。",
+        "col": 0,
+        "y": 782,
+        "x": 64,
+        "w": 319
+      },
+      {
+        "n": 3,
+        "text": "左侧目录：按章节跳到长文任意段落。",
+        "col": 0,
+        "y": 816,
+        "x": 64,
+        "w": 289
+      },
+      {
+        "n": 4,
+        "text": "正文蓝链：顺着词条继续下钻。",
+        "col": 0,
+        "y": 850,
+        "x": 64,
+        "w": 238
+      }
+    ]
+  }
+}

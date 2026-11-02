@@ -122,6 +122,15 @@ The annotate and verify halves are plain Pillow code and run anywhere, including
 
 ### As a DSH plugin
 
+Install it straight from the registry — this **is** the plugin install:
+
+```bash
+pnpm add screenshotpro            # or: npm install screenshotpro
+```
+
+Then add `screenshotpro` to your profile's `dsh.profile.bundles` and set the one
+`customSkillDirs` line described below. That is the whole install; no clone, no build.
+
 `package.json` declares `dsh.bundle.patch`, and `cordis.patch.yml` inserts one agent preset
 (`Screenshot Pro`) that mounts `@deepseek-ai/dsh-persona`, `@deepseek-ai/dsh-tool-skill`,
 `@deepseek-ai/dsh-skill-filesystem`, a shell for the current platform, file/job/todo/ask-user

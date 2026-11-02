@@ -131,6 +131,15 @@ python tools/verify.py  figures/main-window/spec.json
 
 ### 作为 DSH 插件
 
+直接从 registry 装 —— 这一步**就是**装插件：
+
+```bash
+pnpm add screenshotpro            # 或：npm install screenshotpro
+```
+
+然后把 `screenshotpro` 加进 profile 的 `dsh.profile.bundles`，再按下文改那一行
+`customSkillDirs`。就这些，不用 clone、不用构建。
+
 `package.json` 声明了 `dsh.bundle.patch`，`cordis.patch.yml` 插入一个 agent preset
 （`Screenshot Pro`），它挂载 `@deepseek-ai/dsh-persona`、`@deepseek-ai/dsh-tool-skill`、
 `@deepseek-ai/dsh-skill-filesystem`、当前平台的 shell、file/job/todo/ask-user 工具，

@@ -4,12 +4,52 @@
   "description": "Measured UI screenshots: capture a Windows window, keep UI Automation rectangles exactly as measured, render annotated figures, and verify the result with 15 assertions.",
   "license": "MIT",
   "type": "module",
-  "keywords": ["dsh", "dsh-plugin", "screenshot", "annotation", "ui-automation", "documentation", "pillow"],
-  "repository": { "type": "git", "url": "git+https://github.com/HtO404/screenshotpro.git" },
-  "files": ["cordis.patch.yml", "skills", "tools", "tests", "examples", "requirements.txt", "README.md", "LICENSE"],
+  "bin": {
+    "screenshotpro": "bin/screenshotpro.js"
+  },
+  "files": [
+    "bin",
+    "cordis.patch.yml",
+    "skills",
+    "tools",
+    "tests",
+    "examples",
+    "requirements.txt",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "screenshot",
+    "annotation",
+    "ui-automation",
+    "documentation",
+    "pillow",
+    "callout",
+    "screenshot-tool",
+    "winforms",
+    "windows"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HtO404/screenshotpro.git"
+  },
+  "homepage": "https://github.com/HtO404/screenshotpro#readme",
+  "bugs": {
+    "url": "https://github.com/HtO404/screenshotpro/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "meta": {
     "title": "Screenshot Pro",
     "description": "Deterministic screenshot annotation: measure coordinates with UI Automation, never guess them; render boxes, numbered badges, arrows, pixelation and a legend bar; prove the result with 15 assertions."
   },
-  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } }
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
 }

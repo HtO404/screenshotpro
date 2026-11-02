@@ -1,0 +1,10 @@
+# never ship bytecode or local cruft
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.tgz
+.git/
+.github/
+.DS_Store
+Thumbs.db

@@ -5,7 +5,7 @@
 **English** | [中文](README.zh-CN.md)
 
 <p align="center">
-  <img src="demo/wikipedia/out/wikipedia-tour.png" width="880" alt="A Wikipedia article annotated by screenshotpro: four numbered red boxes with arrows, a pixelated account area, and a legend bar along the bottom">
+  <img src="https://raw.githubusercontent.com/HtO404/screenshotpro/main/demo/wikipedia/out/wikipedia-tour.png" width="880" alt="A Wikipedia article annotated by screenshotpro: four numbered red boxes with arrows, a pixelated account area, and a legend bar along the bottom">
 </p>
 
 <p align="center"><sub>
@@ -40,7 +40,7 @@ python tools/render.py demo/mdn/spec.json       && python tools/verify.py demo/m
 
 ### Wikipedia — a reading path through an article
 
-![Wikipedia article annotated with four numbered callouts](demo/wikipedia/out/wikipedia-tour.png)
+![Wikipedia article annotated with four numbered callouts](https://raw.githubusercontent.com/HtO404/screenshotpro/main/demo/wikipedia/out/wikipedia-tour.png)
 
 Four steps: the top-bar search box, the language switcher, the left-hand table of contents, and
 an inline link in the body text. The account area is pixelated. Notice where the text lives: the
@@ -48,7 +48,7 @@ copy sits in the **legend bar underneath**, so the article itself is never writt
 
 ### MDN — search and navigation
 
-![MDN homepage annotated with three numbered callouts](demo/mdn/out/mdn-tour.png)
+![MDN homepage annotated with three numbered callouts](https://raw.githubusercontent.com/HtO404/screenshotpro/main/demo/mdn/out/mdn-tour.png)
 
 Three steps: the search pill, the JavaScript nav tab, and an inline link in the hero. The
 third-party ad strip is pixelated. This figure was rendered with the opt-in
@@ -80,6 +80,23 @@ redaction of a measured control rect, and an auto-sized legend bar appended unde
 screenshot (canvas width never changes).
 
 ## Install
+
+### From npm
+
+~~~bash
+npm install screenshotpro        # or: pnpm add screenshotpro
+npx screenshotpro self-test      # offline: 15/15 PASS, no app needed
+npx screenshotpro render figures/main-window/spec.json
+npx screenshotpro verify figures/main-window/spec.json
+~~~
+
+The npm package is a **distribution vehicle, not a runtime**: it still needs Python 3.9+ and
+Pillow (<code>pip install -r requirements.txt</code> from the package directory). What it buys you:
+
+- <code>npx screenshotpro ...</code> — a one-command CLI over render / verify / measure / self-test.
+- The package **is** the DSH bundle: <code>pnpm add screenshotpro</code> installs the plugin; then add
+  <code>screenshotpro</code> to your profile's <code>dsh.profile.bundles</code> and set the one
+  <code>customSkillDirs</code> line described further down.
 
 ### Standalone (no DSH)
 

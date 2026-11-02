@@ -5,7 +5,7 @@
 **坐标只测不估的界面截图标注工具。**
 
 <p align="center">
-  <img src="demo/wikipedia/out/wikipedia-tour.png" width="880" alt="一张被 screenshotpro 标注过的 Wikipedia 条目：四个带箭头的红色编号框、一块打码的账户区域，以及底部一整条图例">
+  <img src="https://raw.githubusercontent.com/HtO404/screenshotpro/main/demo/wikipedia/out/wikipedia-tour.png" width="880" alt="一张被 screenshotpro 标注过的 Wikipedia 条目：四个带箭头的红色编号框、一块打码的账户区域，以及底部一整条图例">
 </p>
 
 <p align="center"><sub>
@@ -53,14 +53,14 @@ python tools/render.py demo/mdn/spec.json       && python tools/verify.py demo/m
 
 ### Wikipedia —— 一条穿过条目的阅读路径
 
-![被四个编号标注的 Wikipedia 条目页](demo/wikipedia/out/wikipedia-tour.png)
+![被四个编号标注的 Wikipedia 条目页](https://raw.githubusercontent.com/HtO404/screenshotpro/main/demo/wikipedia/out/wikipedia-tour.png)
 
 四步：顶栏搜索框、语言切换器、左侧目录、正文里的一个行内链接。
 账户区域做了马赛克。注意文字放在哪儿：所有说明都落在**底部的图例条**里，条目正文一个像素都没被盖住。
 
 ### MDN —— 搜索与导航
 
-![被三个编号标注的 MDN 首页](demo/mdn/out/mdn-tour.png)
+![被三个编号标注的 MDN 首页](https://raw.githubusercontent.com/HtO404/screenshotpro/main/demo/mdn/out/mdn-tour.png)
 
 三步：搜索胶囊、JavaScript 导航标签、首屏里的一个行内链接。第三方广告条做了马赛克。
 这张图是在开启可选开关 `style.badge_avoid_dense_pixels` 的情况下渲染的 ——
@@ -89,6 +89,23 @@ python tools/render.py demo/mdn/spec.json       && python tools/verify.py demo/m
 （画布宽度永不改变）。
 
 ## 安装
+
+### 从 npm 安装
+
+~~~bash
+npm install screenshotpro        # 或：pnpm add screenshotpro
+npx screenshotpro self-test      # 全离线，15/15 PASS，不需要真实程序
+npx screenshotpro render figures/main-window/spec.json
+npx screenshotpro verify figures/main-window/spec.json
+~~~
+
+npm 包是**分发载体，不是运行时**：它仍然需要 Python 3.9+ 和 Pillow（在包目录里执行
+<code>pip install -r requirements.txt</code>）。它给你两件事：
+
+- <code>npx screenshotpro ...</code> —— 一条命令覆盖 render / verify / measure / self-test；
+- 这个包**本身就是 DSH 插件**：<code>pnpm add screenshotpro</code> 就等于装了插件，之后把
+  <code>screenshotpro</code> 加进 profile 的 <code>dsh.profile.bundles</code>，并按下文改那一行
+  <code>customSkillDirs</code>。
 
 ### 纯命令行（不需要 DSH）
 

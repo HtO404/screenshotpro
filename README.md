@@ -2,6 +2,14 @@
 
 **Annotated UI screenshots whose coordinates are measured, not drawn by hand.**
 
+<p align="center">
+  <img src="demo/wikipedia/out/wikipedia-tour.png" width="880" alt="A Wikipedia article annotated by screenshotpro: four numbered red boxes with arrows, a pixelated account area, and a legend bar along the bottom">
+</p>
+
+<p align="center"><sub>
+Every rectangle in that figure was measured, not drawn — and it only shipped because all 15 assertions passed.
+</sub></p>
+
 You give it a Windows executable. It launches the app, captures the whole window with
 `PrintWindow`, dumps the entire UI Automation control tree, and stores both. A JSON spec
 then says *which* control to point at — never *where* it is. The renderer turns that into
@@ -16,6 +24,34 @@ It ships as two things that do not depend on each other:
 | **DSH plugin bundle** | A `Screenshot Pro` agent preset that mounts this skill and the tools it needs | Yes — any DSH host |
 
 ---
+
+## Demo figures
+
+The two figures below were rendered from **public web pages**, and every rectangle came out of
+the live DOM (`getBoundingClientRect`) — not one coordinate in either `spec.json` was typed by
+hand. Both are reproducible offline from the files committed in `demo/`:
+
+```bash
+python tools/render.py demo/wikipedia/spec.json && python tools/verify.py demo/wikipedia/spec.json
+python tools/render.py demo/mdn/spec.json       && python tools/verify.py demo/mdn/spec.json
+```
+
+### Wikipedia — a reading path through an article
+
+![Wikipedia article annotated with four numbered callouts](demo/wikipedia/out/wikipedia-tour.png)
+
+Four steps: the top-bar search box, the language switcher, the left-hand table of contents, and
+an inline link in the body text. The account area is pixelated. Notice where the text lives: the
+copy sits in the **legend bar underneath**, so the article itself is never written over.
+
+### MDN — search and navigation
+
+![MDN homepage annotated with three numbered callouts](demo/mdn/out/mdn-tour.png)
+
+Three steps: the search pill, the JavaScript nav tab, and an inline link in the hero. The
+third-party ad strip is pixelated. This figure was rendered with the opt-in
+`style.badge_avoid_dense_pixels` switch on — see `demo/README.md` for why it helped here and
+did **not** help on the Wikipedia figure.
 
 ## The rule the whole repo is built around
 

@@ -90,44 +90,13 @@ python tools/render.py demo/mdn/spec.json       && python tools/verify.py demo/m
 
 ## 安装
 
-### 从 npm 安装
-
-~~~bash
-npm install screenshotpro        # 或：pnpm add screenshotpro
-npx screenshotpro self-test      # 全离线，15/15 PASS，不需要真实程序
-npx screenshotpro render figures/main-window/spec.json
-npx screenshotpro verify figures/main-window/spec.json
-~~~
-
-npm 包是**分发载体，不是运行时**：它仍然需要 Python 3.9+ 和 Pillow（在包目录里执行
-<code>pip install -r requirements.txt</code>）。它给你两件事：
 
 - <code>npx screenshotpro ...</code> —— 一条命令覆盖 render / verify / measure / self-test；
 - 这个包**本身就是 DSH 插件**：<code>pnpm add screenshotpro</code> 就等于装了插件，之后把
   <code>screenshotpro</code> 加进 profile 的 <code>dsh.profile.bundles</code>，并按下文改那一行
   <code>customSkillDirs</code>。
 
-### 纯命令行（不需要 DSH）
 
-```bash
-git clone https://github.com/HtO404/screenshotpro.git
-cd screenshotpro
-python -m pip install -r requirements.txt   # Pillow；numpy 只有 measure_win.py 需要
-python tests/run_tests.py                   # 离线跑，15/15 PASS
-```
-
-然后每张图三步：
-
-```bash
-python tools/measure_win.py --exe "C:/Program Files/YourApp/YourApp.exe" --out figures/main-window
-# 读 figures/main-window/dump.json，写 figures/main-window/spec.json
-python tools/render.py  figures/main-window/spec.json
-python tools/verify.py  figures/main-window/spec.json
-```
-
-`tools/measure_win.py` 只能在 Windows 上跑（PowerShell + UI Automation，经由 `tools/uia_dump.ps1`）。
-渲染与校验两半是纯 Pillow 代码，任何平台、任何 CI 都能跑 —— 只要给它一对在任何机器上抓好的
-`shot.png` + `dump.json`。
 
 ### 作为 DSH 插件
 
@@ -135,8 +104,6 @@ python tools/verify.py  figures/main-window/spec.json
 
 ```bash
 pnpm add screenshotpro                                    # 从 npm registry 装（最短）
-pnpm add git+https://github.com/HtO404/screenshotpro.git  # 直接从仓库装（永远拿最新提交）
-pnpm add link:D:/path/to/screenshotpro                    # 从本地检出装（改代码即时生效）
 ```
 
 然后在同一个 profile 目录（`~/.dsh/profiles/<名字>/`）里做两件事：

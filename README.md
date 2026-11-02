@@ -81,53 +81,10 @@ screenshot (canvas width never changes).
 
 ## Install
 
-### From npm
-
-~~~bash
-npm install screenshotpro        # or: pnpm add screenshotpro
-npx screenshotpro self-test      # offline: 15/15 PASS, no app needed
-npx screenshotpro render figures/main-window/spec.json
-npx screenshotpro verify figures/main-window/spec.json
-~~~
-
-The npm package is a **distribution vehicle, not a runtime**: it still needs Python 3.9+ and
-Pillow (<code>pip install -r requirements.txt</code> from the package directory). What it buys you:
-
-- <code>npx screenshotpro ...</code> — a one-command CLI over render / verify / measure / self-test.
-- The package **is** the DSH bundle: <code>pnpm add screenshotpro</code> installs the plugin; then add
-  <code>screenshotpro</code> to your profile's <code>dsh.profile.bundles</code> and set the one
-  <code>customSkillDirs</code> line described further down.
-
-### Standalone (no DSH)
-
-```bash
-git clone https://github.com/HtO404/screenshotpro.git
-cd screenshotpro
-python -m pip install -r requirements.txt   # Pillow; numpy only for measure_win.py
-python tests/run_tests.py                   # 15/15 PASS, offline
-```
-
-Then, per figure:
-
-```bash
-python tools/measure_win.py --exe "C:/Program Files/YourApp/YourApp.exe" --out figures/main-window
-# read figures/main-window/dump.json, write figures/main-window/spec.json
-python tools/render.py  figures/main-window/spec.json
-python tools/verify.py  figures/main-window/spec.json
-```
-
-`tools/measure_win.py` is Windows-only (PowerShell + UI Automation via `tools/uia_dump.ps1`).
-The annotate and verify halves are plain Pillow code and run anywhere, including CI, on a
-`shot.png` + `dump.json` pair captured on any machine.
-
 ### As a DSH plugin
-
-Three sources, same result — pick the one you have:
 
 ```bash
 pnpm add screenshotpro                                    # from the npm registry (shortest)
-pnpm add git+https://github.com/HtO404/screenshotpro.git  # straight from the repo (always newest)
-pnpm add link:D:/path/to/screenshotpro                    # from a local checkout (edits apply live)
 ```
 
 Then, in the same profile directory (`~/.dsh/profiles/<name>/`):

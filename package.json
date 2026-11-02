@@ -1,6 +1,6 @@
 {
   "name": "screenshotpro",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Measured UI screenshots: capture a Windows window, keep UI Automation rectangles exactly as measured, render annotated figures, and verify the result with 15 assertions.",
   "license": "MIT",
   "type": "module",

@@ -91,16 +91,8 @@ python tools/render.py demo/mdn/spec.json       && python tools/verify.py demo/m
 ## 安装
 
 
-- <code>npx screenshotpro ...</code> —— 一条命令覆盖 render / verify / measure / self-test；
-- 这个包**本身就是 DSH 插件**：<code>pnpm add screenshotpro</code> 就等于装了插件，之后把
-  <code>screenshotpro</code> 加进 profile 的 <code>dsh.profile.bundles</code>，并按下文改那一行
-  <code>customSkillDirs</code>。
-
-
 
 ### 作为 DSH 插件
-
-三种来源，结果一样 —— 你手上有什么就用哪种：
 
 ```bash
 pnpm add screenshotpro                                    # 从 npm registry 装（最短）

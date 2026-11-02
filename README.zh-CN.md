@@ -131,14 +131,21 @@ python tools/verify.py  figures/main-window/spec.json
 
 ### 作为 DSH 插件
 
-直接从 registry 装 —— 这一步**就是**装插件：
+三种来源，结果一样 —— 你手上有什么就用哪种：
 
 ```bash
-pnpm add screenshotpro            # 或：npm install screenshotpro
+pnpm add screenshotpro                                    # 从 npm registry 装（最短）
+pnpm add git+https://github.com/HtO404/screenshotpro.git  # 直接从仓库装（永远拿最新提交）
+pnpm add link:D:/path/to/screenshotpro                    # 从本地检出装（改代码即时生效）
 ```
 
-然后把 `screenshotpro` 加进 profile 的 `dsh.profile.bundles`，再按下文改那一行
-`customSkillDirs`。就这些，不用 clone、不用构建。
+然后在同一个 profile 目录（`~/.dsh/profiles/<名字>/`）里做两件事：
+
+1. 在 `package.json` 的 `dsh.profile.bundles` 里加上 `screenshotpro`
+2. 把下面那一行 `customSkillDirs` 改成这个包 `skills/` 目录的**绝对路径**
+
+重启 DSH：preset 列表里出现 `Screenshot Pro`，技能目录里出现 `screenshot-pro`。
+不需要编译、不需要打包 —— 这个包就是 Python 源码加一个 YAML 补丁。
 
 `package.json` 声明了 `dsh.bundle.patch`，`cordis.patch.yml` 插入一个 agent preset
 （`Screenshot Pro`），它挂载 `@deepseek-ai/dsh-persona`、`@deepseek-ai/dsh-tool-skill`、

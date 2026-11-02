@@ -53,8 +53,9 @@ python tools/render.py demo/mdn/spec.json       && python tools/verify.py demo/m
 
 ### Wikipedia —— 一条穿过条目的阅读路径
 
-就是**页首那张大图**（对应 `demo/wikipedia/spec.json`），这里不再重复贴一次，
-免得同一个文件在仓库里出现两遍。四步：顶栏搜索框、语言切换器、左侧目录、正文里的一个行内链接。
+![被四个编号标注的 Wikipedia 条目页](demo/wikipedia/out/wikipedia-tour.png)
+
+四步：顶栏搜索框、语言切换器、左侧目录、正文里的一个行内链接。
 账户区域做了马赛克。注意文字放在哪儿：所有说明都落在**底部的图例条**里，条目正文一个像素都没被盖住。
 
 ### MDN —— 搜索与导航
